@@ -1,5 +1,5 @@
-#' ingest module
+#' Ingest monitoring data
 #' @export
-ingest <- function() {
-  # TODO
+ingest_data <- function(...) {
+  ...
 }

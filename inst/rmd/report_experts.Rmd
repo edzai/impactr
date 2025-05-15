@@ -1,0 +1,29 @@
+---
+title: "Expert Diagnostic Report"
+output: html_document
+params:
+  data: NULL
+  logic_model: NULL
+  audience: "experts"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(impactr)
+```
+
+## Technical Diagnostic
+
+This report provides a detailed data breakdown and evaluation traceability.
+
+## Full KPI Table
+
+```{r}
+analyse_kpis(params$data, params$logic_model)
+```
+
+## Logic Model Review
+
+```{r}
+params$logic_model
+```

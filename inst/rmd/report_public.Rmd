@@ -1,0 +1,30 @@
+---
+title: "Public Impact Summary"
+output: html_document
+params:
+  data: NULL
+  logic_model: NULL
+  audience: "public"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(impactr)
+```
+
+## Overview
+
+This public summary outlines the program's reach and alignment with SDGs.
+
+## Highlights
+
+- Beneficiary reach
+- Regional coverage
+- Progress on key goals
+
+## KPI Highlights
+
+```{r}
+head(analyse_kpis(params$data, params$logic_model))
+```
+

@@ -1,0 +1,24 @@
+---
+title: "Board KPI Report"
+output: html_document
+params:
+  data: NULL
+  logic_model: NULL
+  audience: "board"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(impactr)
+```
+
+## Executive Summary
+
+This report provides an overview of KPI performance for the board.
+
+## KPI Performance Summary
+
+```{r}
+analyse_kpis(params$data, params$logic_model)
+```
+
