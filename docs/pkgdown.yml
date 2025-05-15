@@ -1,0 +1,9 @@
+pandoc: '3.4'
+pkgdown: 2.1.2
+pkgdown_sha: ~
+articles:
+  getting-started: getting-started.html
+last_built: 2025-05-15T15:19Z
+urls:
+  reference: https://edzai.github.io/impactr/reference
+  article: https://edzai.github.io/impactr/articles
