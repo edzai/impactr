@@ -12,6 +12,7 @@ RoxygenNote: 7.2.3
 Depends:
     R (>= 4.0)
 Imports:
+    grf,
     readr,
     readxl,
     googlesheets4,
@@ -20,7 +21,6 @@ Imports:
     dplyr,
     tidyr,
     ggplot2,
-    causalForest,
     dagitty,
     DT,
     flexdashboard,
