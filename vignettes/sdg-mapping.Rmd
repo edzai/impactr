@@ -1,8 +1,8 @@
 ---
-title: "Getting Started with impactr"
+title: "Mapping to SDGs with impactr"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Getting Started with impactr}
+  %\VignetteIndexEntry{Mapping to SDGs}
   %\VignetteEngine{rmarkdown::html_vignette}
   %\VignetteEncoding{UTF-8}
 ---
@@ -10,12 +10,20 @@ vignette: >
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(impactr)
+library(DT)
+library(highcharter)
 ```
 
-## Introduction
+## SDG Alignment
 
 ```{r}
 me_data <- ingest_data(system.file("extdata", "demo_data.csv", package = "impactr"))
-logic_model <- load_logic_model(system.file("extdata", "demo_model.yaml", package = "impactr"))
-validate_model(logic_model)
+sdg_tags <- map_to_sdgs(me_data$indicators)
+DT::datatable(sdg_tags)
+```
+
+## Visualize SDG Contribution
+
+```{r}
+highcharter::hchart(table(sdg_tags$sdg), type = "column")
 ```

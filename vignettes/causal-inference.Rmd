@@ -1,0 +1,37 @@
+---
+title: "Causal Inference with impactr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Causal Inference with impactr}
+  %\VignetteEngine{rmarkdown::html_vignette}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(impactr)
+library(dagitty)
+```
+
+## Inferring Impact with Causal Forests
+
+```{r}
+me_data <- ingest_data(system.file("extdata", "demo_data.csv", package = "impactr"))
+logic_model <- load_logic_model(system.file("extdata", "demo_model.yaml", package = "impactr"))
+validate_model(logic_model)
+
+pred <- infer_impact(data = me_data, logic_model = logic_model, method = "causalforest")
+
+if (is.list(pred) && "predictions" %in% names(pred)) {
+  head(pred$predictions)
+} else {
+  head(pred)
+}
+```
+
+## Visualizing DAG
+
+```{r, fig.width=6}
+dag <- dagitty("dag { treatment -> outcome }")
+plot(dag)
+```

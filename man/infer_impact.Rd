@@ -2,10 +2,20 @@
 % Please edit documentation in R/infer.R
 \name{infer_impact}
 \alias{infer_impact}
-\title{infer_impact module}
+\title{Infer Impact Using Causal Models}
 \usage{
 infer_impact(data, logic_model, method = "causalforest")
 }
+\arguments{
+\item{data}{A data.frame with outcome, treatment, and covariates}
+
+\item{logic_model}{A logic model list}
+
+\item{method}{The method to use ('causalforest')}
+}
+\value{
+GRF prediction object
+}
 \description{
-infer_impact module
+Infer Impact Using Causal Models
 }

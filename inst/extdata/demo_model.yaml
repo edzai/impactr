@@ -1,0 +1,27 @@
+
+inputs:
+  - name: baseline_kpi
+    description: Initial KPI value
+
+activities:
+  - name: training
+    description: Capacity building intervention
+
+outputs:
+  - name: participants
+    description: Number of individuals trained
+
+outcomes:
+  - name: outcome_kpi
+    description: Improved KPI score after intervention
+
+impact:
+  - name: kpi_improvement
+    description: Measurable improvement in KPI
+
+kpis:
+  - name: outcome_kpi
+    target: 70
+
+region: region
+period: period

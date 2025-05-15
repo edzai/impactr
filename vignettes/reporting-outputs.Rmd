@@ -1,0 +1,21 @@
+---
+title: "Generating Reports with impactr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Generating Reports}
+  %\VignetteEngine{rmarkdown::html_vignette}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(impactr)
+```
+
+## Audience-Specific Reports
+
+```{r}
+generate_report(me_data, logic_model, audience = "board")
+generate_report(me_data, logic_model, audience = "public")
+generate_report(me_data, logic_model, audience = "experts")
+```

@@ -1,0 +1,5 @@
+region,period,baseline_kpi,outcome_kpi,treatment
+North,2023Q1,50,70,1
+South,2023Q1,45,60,0
+East,2023Q1,48,72,1
+West,2023Q1,46,59,0
