@@ -18,74 +18,52 @@ install.packages("path/to/impactr.zip", repos = NULL, type = "source")
 
 ```r
 library(impactr)
-data <- ingest_data("data/monitoring_data.xlsx")
+me_data <- ingest_data("inst/extdata/demo_data.csv")
 ```
-
-Supports `.csv`, `.xlsx`, and Google Sheets.
 
 ---
 
-### 2. Load Logic Model
+### 2. Load and Validate Logic Model
 
 ```r
-logic_model <- load_logic_model("data/logic_model.yaml")
+logic_model <- load_logic_model("inst/extdata/demo_model.yaml")
 validate_model(logic_model)
 ```
-
-Accepts `.yaml`, `.json`, or `data.frame`.
 
 ---
 
 ### 3. Analyze KPIs
 
 ```r
-analyse_kpis(data, logic_model)
+analyse_kpis(me_data, logic_model)
 ```
-
-Returns actual vs. target, % achieved, and performance gaps.
 
 ---
 
 ### 4. Infer Causal Impact
 
 ```r
-predictions <- infer_impact(data, logic_model, method = "causalforest")
+pred <- infer_impact(me_data, logic_model, method = "causalforest")
 ```
-
-Uses `grf::causal_forest()` to estimate treatment effects.
 
 ---
 
-### 5. Generate Reports
+### 5. Generate Stakeholder Reports
 
 ```r
-generate_report(data, logic_model, audience = "board")
-generate_report(data, logic_model, audience = "public")
-generate_report(data, logic_model, audience = "experts")
+generate_report(me_data, logic_model, audience = "board")
+generate_report(me_data, logic_model, audience = "public")
+generate_report(me_data, logic_model, audience = "experts")
 ```
-
-Auto-generates stakeholder-specific PDF/HTML reports.
 
 ---
 
-### 6. Visual Dashboards
+### 6. SDG Mapping and Dashboards
 
 ```r
-launch_dashboard(data, logic_model)  # Shiny app
-generate_flexdashboard(data, logic_model)
+map_to_sdgs(me_data$indicators)
+launch_dashboard(me_data, logic_model)
 ```
-
-Interactive KPIs, SDG alignment, and logic model summaries.
-
----
-
-### 7. SDG Mapping
-
-```r
-map_to_sdgs(data$indicators)
-```
-
-Aligns indicators to UN Sustainable Development Goals.
 
 ---
 
@@ -95,19 +73,37 @@ Aligns indicators to UN Sustainable Development Goals.
 
 ---
 
-## 🛠 Dev Notes
+## 🛠 Modules Included
 
-- Modular structure
-- Roxygen2 documentation
-- Vignettes + pkgdown site
-- CI-ready (GitHub Actions)
-- MIT License
+- `ingest_data()`: Import .csv/.xlsx/Google Sheets
+- `load_logic_model()`, `validate_model()`: Load and validate M&E logic models
+- `analyse_kpis()`: Actual vs. target KPI analysis
+- `infer_impact()`: Causal forest-based impact inference
+- `generate_report()`: Generate HTML/PDF stakeholder reports
+- `map_to_sdgs()`: Rule-based SDG alignment
+- `launch_dashboard()`: Interactive visual summaries (Shiny/flexdashboard)
+
+---
+
+## 🧪 Vignettes
+
+- Getting Started
+- KPI Analysis
+- Causal Inference
+- Reporting Outputs
+- SDG Mapping
+
+Run:
+
+```r
+browseVignettes("impactr")
+```
 
 ---
 
 ## 🌍 Contributing
 
-We welcome issues, ideas, and pull requests! Please open a discussion before submitting large changes.
+Issues and PRs welcome. Please include tests and documentation with contributions.
 
 ---
 
