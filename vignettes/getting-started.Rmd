@@ -1,0 +1,16 @@
+---
+title: "Getting Started with impactr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with impactr}
+  %\VignetteEngine{rmarkdown::html_vignette}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+`impactr` is a modular R package for ingesting, analyzing, and reporting Monitoring & Evaluation (M&E) and impact data using logic models, KPI analytics, and causal inference.

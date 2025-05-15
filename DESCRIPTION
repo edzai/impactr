@@ -1,0 +1,34 @@
+Package: impactr
+Type: Package
+Title: Modular M&E and Impact Analysis Toolkit
+Version: 0.1.0
+Author: Edzai Zvobwo [aut, cre]
+Maintainer: Edzai Zvobwo <your.email@example.com>
+Description: A modular R package for ingesting, analyzing, and reporting Monitoring & Evaluation (M&E) and impact data using logic models, KPI analytics, and causal inference.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3
+Depends:
+    R (>= 4.0)
+Imports:
+    readr,
+    readxl,
+    googlesheets4,
+    yaml,
+    jsonlite,
+    dplyr,
+    tidyr,
+    ggplot2,
+    causalForest,
+    dagitty,
+    DT,
+    flexdashboard,
+    shiny,
+    highcharter,
+    rmarkdown
+Suggests:
+    testthat,
+    knitr,
+    pkgdown
+VignetteBuilder: knitr
