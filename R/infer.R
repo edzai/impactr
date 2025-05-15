@@ -15,8 +15,18 @@ infer_impact <- function(data, logic_model, method = "causalforest") {
       stop("Data must include: ", paste(required, collapse = ", "))
     }
 
-    # Create feature matrix X using one-hot encoding
-    X <- model.matrix(~ region + period, data = data)[, -1]  # drop intercept
+    # Convert to factors
+    data$region <- as.factor(data$region)
+    data$period <- as.factor(data$period)
+
+    # Drop factors with fewer than 2 levels to avoid model.matrix errors
+    if (nlevels(data$region) < 2) data$region <- NULL
+    if (nlevels(data$period) < 2) data$period <- NULL
+
+    # Create covariate matrix X
+    covariates <- setdiff(names(data), c("outcome_kpi", "treatment"))
+    X <- model.matrix(~ ., data = data[, covariates])[,-1]
+
     Y <- data$outcome_kpi
     W <- data$treatment
 
