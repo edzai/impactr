@@ -2,9 +2,12 @@ template:
   bootstrap: 5
 
 navbar:
-  title: impactr
+  title: "impactr"
   left:
     - text: "Get Started"
       href: articles/getting-started.html
     - text: "Reference"
       href: reference/index.html
+
+url: https://edzai.github.io/impactr
+destination: docs
